@@ -1,0 +1,18 @@
+version: "3"
+
+services:
+  server:
+    build: server/
+
+    command: python ./server.py
+
+    ports:
+      - 1200:1200
+
+  client:
+    build: client/
+
+    command: python ./client.py
+
+    depends_on:
+      - server
