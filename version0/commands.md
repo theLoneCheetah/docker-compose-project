@@ -3,7 +3,7 @@
 docker build -t flask-server server/
 docker build -t flask-client client/
 ```
-Запуск контейнероа, связанных по созданной виртуальной сети:
+Запуск контейнеров, связанных по созданной виртуальной сети:
 ```
 docker network create my_network
 docker run -d -p 1200:1200 --network=my_network --name server flask-server
