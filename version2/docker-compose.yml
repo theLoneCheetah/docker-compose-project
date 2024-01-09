@@ -7,7 +7,6 @@ services:
     
     container_name: server
     
-    command: python ./server.py
     
     ports:
       - 1101:1001
@@ -22,8 +21,6 @@ services:
     build: bridge/
     
     container_name: bridge
-    
-    command: python ./bridge.py
     
     ports:
       - 1102:1001
@@ -43,8 +40,6 @@ services:
     build: client/
     
     container_name: client
-    
-    command: python ./client.py
     
     environment:
       - PYTHONUNBUFFERED=1

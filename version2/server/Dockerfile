@@ -5,3 +5,5 @@ RUN pip install flask
 
 COPY server.py .
 COPY hello.html ./templates/
+
+CMD python ./server.py

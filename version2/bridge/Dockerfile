@@ -5,3 +5,5 @@ RUN pip install requests
 RUN pip install flask
 
 COPY bridge.py .
+
+CMD python ./bridge.py
