@@ -2,15 +2,16 @@
 
 import requests
 import flask
+import os
 
-name = 'main'
+name = 'bridge'
 app = flask.Flask(name)
 
 @app.route('/')
 def hello():
-  response = requests.get("http://server:1001")
+  response = requests.get(os.environ['SERVER_URL'])
   st = response.text + " Have a nice day!"
   return st
 
-if name == 'main':
-  app.run(host='0.0.0.0', port=1001)
+if name == 'bridge':
+  app.run(host='0.0.0.0', port=os.environ['SELF_PORT'])

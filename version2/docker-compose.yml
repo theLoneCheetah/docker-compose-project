@@ -1,21 +1,40 @@
 version: "3"
 
 services:
+
   server:
     build: server/
+    
+    container_name: server
     
     command: python ./server.py
     
     ports:
       - 1101:1001
     
+    networks:
+      - back
+    
+    environment:
+      - SELF_PORT=1001
+    
   bridge:
     build: bridge/
+    
+    container_name: bridge
     
     command: python ./bridge.py
     
     ports:
       - 1102:1001
+    
+    environment:
+      - SELF_PORT=1001
+      - SERVER_URL=http://server:1001/
+    
+    networks:
+      - back
+      - front
     
     depends_on:
       - server
@@ -23,7 +42,22 @@ services:
   client:
     build: client/
     
+    container_name: client
+    
     command: python ./client.py
+    
+    environment:
+      - PYTHONUNBUFFERED=1
+      - SERVER_URL=http://bridge:1001/
+    
+    networks:
+      - front
     
     depends_on:
       - bridge
+
+networks:
+  back:
+    driver: bridge
+  front:
+    driver: bridge
