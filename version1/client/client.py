@@ -1,8 +1,6 @@
 #!/usr/bin/env python3
 
-import urllib.request
+import requests
 
-with urllib.request.urlopen("http://server:1200/") as url:
-	encoded = url.read()
-	decoded = encoded.decode("utf8")
-	print(decoded)
+response = requests.get("http://server:1200/")
+print(response.text)
