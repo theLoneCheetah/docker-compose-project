@@ -1,4 +1,4 @@
 FROM python:latest
 
-ADD server.py .
-ADD index.html .
+COPY server.py .
+COPY index.html .

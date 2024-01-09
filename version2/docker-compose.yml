@@ -58,6 +58,4 @@ services:
 
 networks:
   back:
-    driver: bridge
   front:
-    driver: bridge

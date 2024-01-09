@@ -1,5 +1,5 @@
 FROM python:latest
 
-ADD client.py .
+COPY client.py .
 
 CMD python client.py

@@ -4,4 +4,4 @@ RUN /bin/bash && apt-get update && apt-get install -y iputils-ping
 RUN pip install requests
 RUN pip install flask
 
-ADD bridge.py .
+COPY bridge.py .

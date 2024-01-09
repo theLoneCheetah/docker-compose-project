@@ -1,3 +1,3 @@
 FROM python:latest
 
-ADD client.py .
+COPY client.py .
